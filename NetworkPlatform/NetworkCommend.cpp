@@ -82,8 +82,8 @@ const string CommendRegistr::to_data() const
 	string strdata;
 	
 	strdata += "<type>";
-	//TypeData tmp = type();
-	//strdata.append((char*)&tmp,sizeof(TypeData));
+	TypeData tmp = type();
+	strdata.append((char*)&tmp,sizeof(TypeData));
 	strdata.append(type(), sizeof(TypeData));
 	strdata += "</type>";
 

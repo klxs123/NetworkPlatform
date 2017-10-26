@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtNetworkClient", "QtNetworkClient\QtNetworkClient.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EA268B71-4229-4A23-B9E8-95844583119E} = {EA268B71-4229-4A23-B9E8-95844583119E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QtNetworkServer", "..\QtNetworkServer\QtNetworkServer\QtNetworkServer.vcxproj", "{992CA81C-B7C6-480B-A099-57F23E42AFD7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EA268B71-4229-4A23-B9E8-95844583119E} = {EA268B71-4229-4A23-B9E8-95844583119E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NetworkPlatform", "NetworkPlatform\NetworkPlatform.vcxproj", "{EA268B71-4229-4A23-B9E8-95844583119E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.ActiveCfg = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.Build.0 = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.ActiveCfg = Release|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.Build.0 = Release|x64
+		{992CA81C-B7C6-480B-A099-57F23E42AFD7}.Debug|x64.ActiveCfg = Debug|x64
+		{992CA81C-B7C6-480B-A099-57F23E42AFD7}.Debug|x64.Build.0 = Debug|x64
+		{992CA81C-B7C6-480B-A099-57F23E42AFD7}.Release|x64.ActiveCfg = Release|x64
+		{992CA81C-B7C6-480B-A099-57F23E42AFD7}.Release|x64.Build.0 = Release|x64
+		{EA268B71-4229-4A23-B9E8-95844583119E}.Debug|x64.ActiveCfg = Debug|x64
+		{EA268B71-4229-4A23-B9E8-95844583119E}.Debug|x64.Build.0 = Debug|x64
+		{EA268B71-4229-4A23-B9E8-95844583119E}.Release|x64.ActiveCfg = Release|x64
+		{EA268B71-4229-4A23-B9E8-95844583119E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

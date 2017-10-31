@@ -54,7 +54,7 @@ public:
     {
         if (QtNetworkClientClass->objectName().isEmpty())
             QtNetworkClientClass->setObjectName(QStringLiteral("QtNetworkClientClass"));
-        QtNetworkClientClass->resize(699, 457);
+        QtNetworkClientClass->resize(1004, 690);
         m_useregitis = new QAction(QtNetworkClientClass);
         m_useregitis->setObjectName(QStringLiteral("m_useregitis"));
         m_userlogin = new QAction(QtNetworkClientClass);
@@ -86,7 +86,7 @@ public:
         QtNetworkClientClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QtNetworkClientClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 699, 26));
+        menuBar->setGeometry(QRect(0, 0, 1004, 26));
         menuUser = new QMenu(menuBar);
         menuUser->setObjectName(QStringLiteral("menuUser"));
         menuFind = new QMenu(menuBar);

@@ -23,7 +23,10 @@ UserRegistr::UserRegistr(QWidget *parent)
 
 }
 
-UserRegistr::~UserRegistr(){}
+UserRegistr::~UserRegistr()
+{
+	
+}
 
 void UserRegistr::EqualPasswd()
 {
@@ -67,16 +70,20 @@ CommendRegistr* UserRegistr::commend()
 	m_cmd->passwd = ui.m_RegiPasswd->text().toStdString();
 	m_cmd->info = ui.m_RegiInformation->toPlainText().toStdString();
 
-	const QString filename = ui.m_lbImage->GetImages();
+	const QString& filename = ui.m_lbImage->GetImages();
 	QFile file(filename);
-	if (!file.open(QIODevice::ReadOnly))
+	if (file.open(QIODevice::ReadOnly))
 	{
-		//delete m_cmd;
-		//m_cmd = 0;
+		QByteArray bytes = file.readAll();
+		m_cmd->img = bytes.toStdString();
+		
 	}
-	QByteArray bytes = file.readAll();
-	m_cmd->img = bytes.toStdString();				//bug
-	
+	else
+	{
+		delete m_cmd;
+		m_cmd = 0;
+	}
+
 	return m_cmd;
 }
 

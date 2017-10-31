@@ -7,6 +7,7 @@ string get_value(const string& data, string start)
 	start = "<" + start + ">";
 
 	int sta = data.find(start) + start.length();
+	int en = data.find(end);
 	int se = data.find(end) - sta;
 	string value = data.substr(sta, se);
 
@@ -52,10 +53,18 @@ const string Package::to_data() const
 
 void Package::form_data(const string &fdata)
 {
-	int le = fdata.find(start)+ strlen(start);
-	string lengths = fdata.substr(le, sizeof(uint32_t));
-	uint32_t len = *(uint32_t*)lengths.data();
-	string cmd_data = fdata.substr(le, len);
+	int data_start = fdata.find(start)+ strlen(start);
+	int data_end = fdata.find(end);
+
+	if (data_start == string::npos || data_end == string::npos)
+	{
+		//结束标志是否出现在数据长度末尾
+		return;//检验数据包完整度
+	}
+
+	string data = fdata.substr(data_start, sizeof(uint32_t));
+	uint32_t len = *(uint32_t*)data.data();
+	string cmd_data = fdata.substr(data_start, len);
 
 	string stype = get_value(cmd_data, "type");
 	uint32_t type = *(uint32_t*)stype.data();
@@ -69,10 +78,7 @@ void Package::form_data(const string &fdata)
 	break;
 	default:
 		break;
-
 	}
-	//slen.form_data(fdata.substr(le, fdata.find(end)));
-
 	return ;
 }
 
@@ -84,7 +90,6 @@ const string CommendRegistr::to_data() const
 	strdata += "<type>";
 	TypeData tmp = type();
 	strdata.append((char*)&tmp,sizeof(TypeData));
-	strdata.append(type(), sizeof(TypeData));
 	strdata += "</type>";
 
 	strdata += "<name>";
@@ -111,7 +116,7 @@ void CommendRegistr::form_data(const string & data)
 	//type = (CommendType)*(uint32_t*)(get_value(data, "type").data());
 	
 	this->name = get_value(data, "name");
-	this->passwd = get_value(data, "passwd");
+	this->passwd = get_value(data, "psd");
 	this->info = get_value(data, "info");
 	this->img = get_value(data, "img");
 }

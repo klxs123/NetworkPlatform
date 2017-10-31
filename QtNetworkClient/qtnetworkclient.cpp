@@ -19,6 +19,11 @@ QtNetworkClient::QtNetworkClient(QWidget *parent)
 	//QAction *action = ui.m_userlogin->addAction("Login");
 	connect(ui.m_userlogin, &QAction::triggered, m_userlogin, &UserLogin::exec);
 
+	//连接数据库之前不允许进行注册和登录
+	//ui.m_useregitis->setEnabled(false);
+	ui.m_userlogin->setEnabled(false);
+	
+
 	//响应用户注册
 	connect(m_userregistr, SIGNAL(us_register()), this, SLOT(OnUserRegister()));
 
@@ -49,6 +54,7 @@ void QtNetworkClient::OnConnectClick()
 
 	//QHostAddress ha("127.0.0.1");
 
+	
 	m_socket->connectToHost("127.0.0.1", 8001);
 
 	ui.m_btConnect->setDisabled(true);
@@ -58,6 +64,8 @@ void QtNetworkClient::OnConnectClick()
 
 void QtNetworkClient::OnConnected()
 {
+	ui.m_useregitis->setEnabled(true);
+	ui.m_userlogin->setEnabled(true);
 	ui.m_btConnect->setText("connected");
 }
 
@@ -88,7 +96,7 @@ void QtNetworkClient::OnUserRegister()
 
 	string data = package.to_data();
 	
-	m_socket->write(data.c_str(),data.length());
+	m_socket->write(data.data(),data.length());
 	
 }
 

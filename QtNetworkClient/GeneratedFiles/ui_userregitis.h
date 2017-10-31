@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QDateEdit>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -68,8 +67,6 @@ public:
     QLabel *label_6;
     QRadioButton *m_InfoSex_boy;
     QRadioButton *m_InfoSex_girl;
-    QLabel *label_7;
-    QDateEdit *m_InfoBirth;
     QSpacerItem *horizontalSpacer_4;
     QHBoxLayout *horizontalLayout;
     QLabel *label_8;
@@ -251,6 +248,7 @@ public:
 
         m_InfoName = new QLineEdit(UserRegitis);
         m_InfoName->setObjectName(QStringLiteral("m_InfoName"));
+        m_InfoName->setMaximumSize(QSize(350, 16777215));
 
         horizontalLayout_10->addWidget(m_InfoName);
 
@@ -266,35 +264,24 @@ public:
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
         label_6 = new QLabel(UserRegitis);
         label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setMinimumSize(QSize(250, 0));
+        label_6->setMaximumSize(QSize(150, 16777215));
 
         horizontalLayout_9->addWidget(label_6);
 
         m_InfoSex_boy = new QRadioButton(UserRegitis);
         m_InfoSex_boy->setObjectName(QStringLiteral("m_InfoSex_boy"));
-        m_InfoSex_boy->setMinimumSize(QSize(80, 0));
-        m_InfoSex_boy->setMaximumSize(QSize(80, 16777215));
+        m_InfoSex_boy->setMinimumSize(QSize(150, 0));
+        m_InfoSex_boy->setMaximumSize(QSize(150, 16777215));
 
         horizontalLayout_9->addWidget(m_InfoSex_boy);
 
         m_InfoSex_girl = new QRadioButton(UserRegitis);
         m_InfoSex_girl->setObjectName(QStringLiteral("m_InfoSex_girl"));
-        m_InfoSex_girl->setMinimumSize(QSize(80, 0));
-        m_InfoSex_girl->setMaximumSize(QSize(80, 16777215));
+        m_InfoSex_girl->setMinimumSize(QSize(150, 0));
+        m_InfoSex_girl->setMaximumSize(QSize(150, 16777215));
 
         horizontalLayout_9->addWidget(m_InfoSex_girl);
-
-        label_7 = new QLabel(UserRegitis);
-        label_7->setObjectName(QStringLiteral("label_7"));
-
-        horizontalLayout_9->addWidget(label_7);
-
-        m_InfoBirth = new QDateEdit(UserRegitis);
-        m_InfoBirth->setObjectName(QStringLiteral("m_InfoBirth"));
-        m_InfoBirth->setEnabled(true);
-        m_InfoBirth->setMinimumSize(QSize(160, 0));
-        m_InfoBirth->setMaximumSize(QSize(160, 16777215));
-
-        horizontalLayout_9->addWidget(m_InfoBirth);
 
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -391,12 +378,11 @@ public:
         m_lbImage->setText(QString());
         label_4->setText(QString());
         groupBox->setTitle(QApplication::translate("UserRegitis", "Information:", Q_NULLPTR));
-        label->setText(QApplication::translate("UserRegitis", "  Name:", Q_NULLPTR));
-        label_6->setText(QApplication::translate("UserRegitis", "   Sex:", Q_NULLPTR));
-        m_InfoSex_boy->setText(QApplication::translate("UserRegitis", "Boy", Q_NULLPTR));
-        m_InfoSex_girl->setText(QApplication::translate("UserRegitis", "Girl", Q_NULLPTR));
-        label_7->setText(QApplication::translate("UserRegitis", "        Birth:", Q_NULLPTR));
-        label_8->setText(QApplication::translate("UserRegitis", "   Tel:", Q_NULLPTR));
+        label->setText(QApplication::translate("UserRegitis", "                         Account:", Q_NULLPTR));
+        label_6->setText(QApplication::translate("UserRegitis", "                            Sex: ", Q_NULLPTR));
+        m_InfoSex_boy->setText(QApplication::translate("UserRegitis", "  Boy", Q_NULLPTR));
+        m_InfoSex_girl->setText(QApplication::translate("UserRegitis", "  Girl", Q_NULLPTR));
+        label_8->setText(QApplication::translate("UserRegitis", "                             Tel:", Q_NULLPTR));
         label_5->setText(QApplication::translate("UserRegitis", "Regitisy...", Q_NULLPTR));
         m_RegiNext->setText(QApplication::translate("UserRegitis", "Next", Q_NULLPTR));
         m_RegiBack->setText(QApplication::translate("UserRegitis", "Back", Q_NULLPTR));

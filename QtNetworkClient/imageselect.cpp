@@ -25,9 +25,9 @@ const int Path_lenth = 18;		//:/image/Resources/
 
 const QString ImageSelect::GetImages()
 {
-	QString m_filename = "D:\\vs2015Project\\QtNetworkClient\\QtNetworkClient\\Resources\\";
-	m_filename += m_file.mid(Path_lenth);
-	return m_filename;
+	//QString m_filename = "D:\\vs2015Project\\QtNetworkClient\\QtNetworkClient\\Resources\\";
+	//m_filename += m_file.mid(Path_lenth);
+	return m_file;
 }
 
 

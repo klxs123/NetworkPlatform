@@ -2,10 +2,10 @@
 
 #include <QTcpSocket>
 #include <QHostAddress>
-//#include <QPainter>
 
 QtNetworkClient::QtNetworkClient(QWidget *parent)
 	: QMainWindow(parent),m_socket(0),m_userlogin(0),m_userregistr(0)
+	,m_socketbuffs(0),m_lastCommend(CT_END)
 {
 	ui.setupUi(this);
 	QObject::connect(ui.m_btConnect, SIGNAL(clicked()), this, SLOT(OnConnectClick()));
@@ -23,10 +23,8 @@ QtNetworkClient::QtNetworkClient(QWidget *parent)
 	//ui.m_useregitis->setEnabled(false);
 	ui.m_userlogin->setEnabled(false);
 	
-
 	//ÏìÓ¦ÓÃ»§×¢²á
 	connect(m_userregistr, SIGNAL(us_register()), this, SLOT(OnUserRegister()));
-
 
 	//°ïÖú
 	m_userget_help = new UserGet_help(this);
@@ -79,8 +77,44 @@ void QtNetworkClient::OnDataReadyRead()
 {
 	QByteArray data =  m_socket->readAll();
 
-	//string str = data.toStdString();
+	m_socketbuffs->append(data.toStdString());
 
+	Package package;
+
+	int index = package.form_data(*m_socketbuffs);
+
+
+
+	switch (package.m_registr->type())
+	{
+	case CT_REGISTER_RESPONSE:
+	{
+		CommendRegistrRequest* cmd = (CommendRegistrRequest*)package.m_registr;
+
+		if (cmd == 0)
+		{
+			break;
+		}
+
+		if (cmd->success)
+		{
+			m_userregistr->close();
+		}
+		else
+		{
+
+		}
+
+	}
+	break;
+	case CT_LOGIN_RESPONSE:
+	{
+
+	}
+	break;
+	default:
+		break;
+	}
 	ui.m_lwMessages->addItem(data);
 }
 
@@ -98,6 +132,6 @@ void QtNetworkClient::OnUserRegister()
 	
 	m_socket->write(data.data(),data.length());
 	
+	m_lastCommend = CT_REGISTER;
 }
-
 

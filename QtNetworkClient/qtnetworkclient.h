@@ -30,4 +30,6 @@ private:
 	UserRegistr* m_userregistr;
 	UserLogin* m_userlogin;
 	UserGet_help* m_userget_help;
+	std::string* m_socketbuffs;
+	CommendType m_lastCommend;
 };

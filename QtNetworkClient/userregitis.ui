@@ -432,5 +432,22 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>m_RegiCancel</sender>
+   <signal>clicked()</signal>
+   <receiver>UserRegitis</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>899</x>
+     <y>646</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>477</x>
+     <y>336</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

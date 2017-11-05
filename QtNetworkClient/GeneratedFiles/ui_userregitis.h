@@ -362,6 +362,7 @@ public:
 
 
         retranslateUi(UserRegitis);
+        QObject::connect(m_RegiCancel, SIGNAL(clicked()), UserRegitis, SLOT(close()));
 
         QMetaObject::connectSlotsByName(UserRegitis);
     } // setupUi

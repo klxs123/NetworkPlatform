@@ -62,7 +62,9 @@ CommendRegistr* UserRegistr::commend()
 {
 	if (m_cmd != 0)
 	{
+		
 		delete m_cmd;
+		m_cmd = 0;
 	}
 	
 	m_cmd = new CommendRegistr;
